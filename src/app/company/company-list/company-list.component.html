@@ -1,0 +1,33 @@
+<div>
+    <h1 class="mt-2 mb-4 text-center">Empresa</h1>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Empresa</th>
+          <th scope="col">CNPJ</th>
+          <th scope="col">Email</th>
+          <th scope="col">Telefones</th>
+          <th scope="col">Endereço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let companies of companies">
+          <th scope="row">{{ companies.id }}</th>
+          <td>{{ companies.name }}</td>
+          <td>{{ companies.document }}</td>
+          <td>{{ companies.email }}</td>
+          <td>
+            <p *ngFor="let phone of companies.phones">
+              {{ phone.phone }} -- {{ phone.username }}
+            </p>
+          </td>
+          <td>
+            <p *ngFor="let address of companies.address">
+              {{ address.street }} 
+            </p>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
