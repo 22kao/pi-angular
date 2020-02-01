@@ -19,13 +19,11 @@
           <td>{{ companies.email }}</td>
           <td>
             <p *ngFor="let phone of companies.phones">
-              {{ phone.phone }} -- {{ phone.username }}
+              Tel: {{ phone.phone }}  Usuário:{{ phone.username }}
             </p>
           </td>
-          <td>
-            <p *ngFor="let address of companies.address">
-              {{ address.street }} 
-            </p>
+          <td>CEP: {{ companies.address.cep }} Rua: {{ companies.address.street }} N:{{ companies.address.number }}
+              Cidade: {{ companies.address.city }} UF: {{ companies.address.state }}
           </td>
         </tr>
       </tbody>

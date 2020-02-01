@@ -1,7 +1,6 @@
 import { Phone } from './phone';
 import { Address } from './address';
 
-
 export class Company {
 
     id: number;
@@ -9,6 +8,5 @@ export class Company {
     document: string;
     email: string;
     phones: Phone[];
-    address: Address[];
-
+    addess: Address;
 }
