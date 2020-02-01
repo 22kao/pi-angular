@@ -1,9 +1,9 @@
 <div>
     <h1 class="mt-2 mb-4 text-center">Empresa</h1>
     <span class="float-right">
-    <button type="button" class="btn btn-outline-success">Novo</button>
+    <button type="button" class="btn btn-primary" [routerLink]="['novo']">Novo</button>
     </span>
-    <table class="table table-striped" *ngIf = "companies$ | async as companies; else loadingError">
+    <table class="table table-striped" *ngIf = "companies$ | async as companies; else loading">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -42,12 +42,8 @@
         </tr>
       </tbody>
     </table>
-    <ng-template #loadingError>
-      <div *ngIf = "error$ | async; else loading">
-        Erro ao carregar empresas. Tente novamente mais tarde.
-      </div>
-      <ng-template #loading>
-        <span>Carregando Empresas...</span>
-      </ng-template>
+    <ng-template #loading>
+      <span>Carregando Empresas...</span>
     </ng-template>
+
   </div>
