@@ -7,6 +7,6 @@ export class Company {
     name: string;
     document: string;
     email: string;
-    phones: Phone[];
+    phones: Phone;
     addess: Address;
 }

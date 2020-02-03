@@ -21,9 +21,7 @@
           <td>{{ companies.document }}</td>
           <td>{{ companies.email }}</td>
           <td>
-            <p *ngFor="let phone of companies.phones">
-              Tel: {{ phone.phone }}  Usuário:{{ phone.username }}
-            </p>
+              Tel: {{ companies.phones.phone }}  Usuário:{{ companies.phones.username }}
           </td>
           <td>CEP: {{ companies.address.cep }} Rua: {{ companies.address.street }} N:{{ companies.address.number }}
               Cidade: {{ companies.address.city }} UF: {{ companies.address.state }}
