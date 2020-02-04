@@ -6,7 +6,7 @@ import { catchError, take, switchMap } from 'rxjs/operators';
 import { AlertModalService } from 'src/app/shared/alert-modal.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
-import { Company2Service } from '../company2.service';
+
 
 
 @Component({
@@ -31,7 +31,7 @@ export class CompanyListComponent implements OnInit {
   companySeleted: Company;
   
 
-  constructor(private companyService: Company2Service,
+  constructor(private companyService: CompanyService,
               private modalService: BsModalService,
               private alertService: AlertModalService,
               private router: Router,

@@ -21,7 +21,7 @@ export class CompanyFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private service: Company2Service,
+    private service: CompanyService,
     private modal: AlertModalService,
     private location: Location,
     private route: ActivatedRoute

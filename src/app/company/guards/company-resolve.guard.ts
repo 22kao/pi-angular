@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import {CanActivate, Resolve, ActivatedRouteSnapshot, RouterStateSnapshot, Router } from '@angular/router';
 import { Observable, of } from 'rxjs';
 import { Company } from '../company';
-import { CompanyService } from '../company.service';
 import { analyzeAndValidateNgModules } from '@angular/compiler';
+import { CompanyService } from '../company.service';
 
 @Injectable({
   providedIn: 'root'
