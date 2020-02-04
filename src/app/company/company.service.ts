@@ -45,4 +45,8 @@ export class CompanyService {
     }
   }
 
+  remove(id){
+    return this.http.delete(this.apiUrl + "/" + [id]).pipe(take(1));
+  }
+
 }
