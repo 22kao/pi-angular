@@ -1,8 +1,7 @@
 import { Phone } from './phone';
 import { Address } from './address';
 
-export class Company {
-
+export class Company extends Address {
     id: number;
     name: string;
     document: string;

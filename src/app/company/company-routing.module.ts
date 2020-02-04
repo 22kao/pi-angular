@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CompanyListComponent } from './company-list/company-list.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CompanyFormComponent } from './company-form/company-form.component';
+import { CompanyResolveGuard } from './guards/company-resolve.guard';
 
 
 const routes: Routes = [
@@ -16,11 +17,13 @@ const routes: Routes = [
   },
   {
     path: "novo",
-    component: CompanyFormComponent
+    component: CompanyFormComponent,
+    resolve: { company: CompanyResolveGuard}
   },
   {
     path: "editar/:id",
-    component: CompanyFormComponent
+    component: CompanyFormComponent,
+    resolve: { company: CompanyResolveGuard}
   }
 ];
 
