@@ -6,6 +6,7 @@ import { Location } from "@angular/common";
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { Company } from '../company';
+import { Company2Service } from '../company2.service';
 
 @Component({
   selector: "app-company-form",
@@ -20,7 +21,7 @@ export class CompanyFormComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private service: CompanyService,
+    private service: Company2Service,
     private modal: AlertModalService,
     private location: Location,
     private route: ActivatedRoute
