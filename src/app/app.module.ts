@@ -12,11 +12,14 @@ import { CompanyService } from './company/company.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
 import { ImplantationModule } from './implantation/implantation.module';
+import { LoginComponent } from './login/login.component';
+import { AuthService } from './login/auth.service';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { ImplantationModule } from './implantation/implantation.module';
     SharedModule,
     ImplantationModule
   ],
-  providers: [CompanyService],
+  providers: [CompanyService, AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

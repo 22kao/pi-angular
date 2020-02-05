@@ -7,5 +7,5 @@ export class Company  {
     document: string;
     email: string;
     phones: Phone;
-    addess: Address;
+    address: Address;
 }
