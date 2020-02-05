@@ -31,11 +31,11 @@
             <td>{{ implements.dtRealized }}</td>
             <td>{{ implements.status }}</td>
             <span class="float-right">
-              <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit()">
+              <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(implements.id)">
                 Atualizar
               </button>
   
-              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete()">
+              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(implements)">
                 Remover
               </button>
             </span>
