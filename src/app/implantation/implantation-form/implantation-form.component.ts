@@ -20,7 +20,8 @@ export class ImplantationFormComponent implements OnInit {
               private service: ImplantationService,
               private modal: AlertModalService,
               private location: Location,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
 
@@ -83,6 +84,7 @@ export class ImplantationFormComponent implements OnInit {
   onCancel(){
     this.submitted = false;
     this.form.reset();
+    this.location.back();
   }
 
   hasError(field: string) {
