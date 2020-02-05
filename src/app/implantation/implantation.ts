@@ -1,4 +1,4 @@
-export class Implantation {
+export interface Implantation {
     id: number;
     description: string;
     dtExpectedInitial: Date;

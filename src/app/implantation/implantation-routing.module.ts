@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ImplantationListComponent } from './implantation-list/implantation-list.component';
+import { ImplantationFormComponent } from './implantation-form/implantation-form.component';
+import { ImplantationResolveGuard } from './guards/implantation-resolve.guard';
 
 
 
@@ -16,11 +18,13 @@ const routes: Routes = [
    },
    {
      path: "novo",
-     component: ImplantationListComponent
+     component: ImplantationFormComponent,
+     resolve: { implantation: ImplantationResolveGuard}
    },
    {
      path: "editar/:id",
-     component: ImplantationListComponent
+     component: ImplantationFormComponent,
+     resolve: { implantation: ImplantationResolveGuard}
    }
  ];
  

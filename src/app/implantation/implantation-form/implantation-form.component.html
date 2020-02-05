@@ -1,0 +1,122 @@
+<form class="needs-validation" novalidate [formGroup]="form" style="padding-top: 10px">
+  <div class="form-row">
+    <!-- Descrição-->
+    <div class="col-sm-2">
+      <label for="descricao">Descrição</label>
+      <input type="text" 
+      class="form-control" 
+      id="descricao" 
+      placeholder="Descrição" 
+      formControlName="description"
+        [ngClass]="{ 'is-invalid': submitted && hasError('description')}" />
+      <div class="invalid-feedback" *ngIf="hasError('description') && hasError('description')['required']">
+        Por favor informe um Modulo para o Implatação.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('description') && hasError('description')['minlength']">
+        Descrição precisa ter no mínimo {{ hasError('description')['minlength'].requiredLength }} caracteres.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('description') && hasError('description')['maxlength']">
+        Descrição precisa ter no máximo {{ hasError('description')['maxlength'].requiredLength }} caracteres.
+      </div>
+    </div>
+    <!-- Dt Estimativa Inicio dtExpectedInitial-->
+    <div class="col-sm-2">
+      <label for="dtExpInicial">Data Estimada Inicio</label>
+      <input type="text" 
+      class="form-control" 
+      id="dtExpInicial" 
+      placeholder="Data Estimada Inicio" 
+      formControlName="dtExpectedInitial"
+        [ngClass]="{ 'is-invalid': submitted && hasError('dtExpectedInitial')}" />
+      <div class="invalid-feedback" *ngIf="hasError('dtExpectedInitial') && hasError('dtExpectedInitial')['required']">
+        Por favor informe um Data Estimada Inicio para o Implatação.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('dtExpectedInitial') && hasError('dtExpectedInitial')['minlength']">
+        Data Estimada Inicio precisa ter no mínimo {{ hasError('dtExpectedInitial')['minlength'].requiredLength }} caracteres.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('dtExpectedInitial') && hasError('dtExpectedInitial')['maxlength']">
+        Data Estimada Inicio precisa ter no máximo {{ hasError('dtExpectedInitial')['maxlength'].requiredLength }} caracteres.
+      </div>
+    </div>
+    <!-- Dt Estimativa Final dtExpected-->
+    <div class="col-sm-2">
+      <label for="dtExpFinal">Data Estimada Final</label>
+      <input type="text" 
+      class="form-control" 
+      id="dtExpFinal" 
+      placeholder="Data Estimada Inicio" 
+      formControlName="dtExpected"
+        [ngClass]="{ 'is-invalid': submitted && hasError('dtExpected')}" />
+      <div class="invalid-feedback" *ngIf="hasError('dtExpected') && hasError('dtExpected')['required']">
+        Por favor informe um Data Estimada Final para o Implatação.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('dtExpected') && hasError('dtExpected')['minlength']">
+        Data Estimada Final precisa ter no mínimo {{ hasError('dtExpected')['minlength'].requiredLength }} caracteres.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('dtExpected') && hasError('dtExpected')['maxlength']">
+        Data Estimada Final precisa ter no máximo {{ hasError('dtExpected')['maxlength'].requiredLength }} caracteres.
+      </div>
+    </div>
+    <!-- Dt Real Inicial dtInitial-->
+    <div class="col-sm-2">
+      <label for="dtRealInicial">Data Real Inicio</label>
+      <input type="text" 
+      class="form-control" 
+      id="dtRealInicial" 
+      placeholder="Data Real Inicio" 
+      formControlName="dtInitial"
+        [ngClass]="{ 'is-invalid': submitted && hasError('dtInitial')}" />
+      <div class="invalid-feedback" *ngIf="hasError('dtInitial') && hasError('dtInitial')['required']">
+        Por favor informe um Data Real Inicio para o Implatação.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('dtInitial') && hasError('dtInitial')['minlength']">
+        Data Real Inicio precisa ter no mínimo {{ hasError('dtInitial')['minlength'].requiredLength }} caracteres.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('dtInitial') && hasError('dtInitial')['maxlength']">
+        Data Real Inicio precisa ter no máximo {{ hasError('dtInitial')['maxlength'].requiredLength }} caracteres.
+      </div>
+    </div>
+    <!-- Dt Real Final dtRealized-->
+    <div class="col-sm-2">
+      <label for="dtRealFinal">Data Real Final</label>
+      <input type="text" 
+      class="form-control" 
+      id="dtRealFinal" 
+      placeholder="Data Real Final" 
+      formControlName="dtRealized"
+        [ngClass]="{ 'is-invalid': submitted && hasError('dtRealized')}" />
+      <div class="invalid-feedback" *ngIf="hasError('dtRealized') && hasError('dtRealized')['required']">
+        Por favor informe um Data Real Final para o Implatação.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('dtRealized') && hasError('dtRealized')['minlength']">
+        Data Real Final precisa ter no mínimo {{ hasError('dtRealized')['minlength'].requiredLength }} caracteres.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('dtRealized') && hasError('dtRealized')['maxlength']">
+        Data Real Final precisa ter no máximo {{ hasError('dtRealized')['maxlength'].requiredLength }} caracteres.
+      </div>
+    </div>
+    <!-- Status status-->
+    <div class="col-sm-2">
+      <label for="status">Status</label>
+      <input type="text" 
+      class="form-control" 
+      id="status" 
+      placeholder="Status" 
+      formControlName="status"
+        [ngClass]="{ 'is-invalid': submitted && hasError('status')}" />
+      <div class="invalid-feedback" *ngIf="hasError('status') && hasError('status')['required']">
+        Por favor informe um Status para o Implatação.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('status') && hasError('status')['minlength']">
+        Status precisa ter no mínimo {{ hasError('status')['minlength'].requiredLength }} caracteres.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('status') && hasError('status')['maxlength']">
+        Status precisa ter no máximo {{ hasError('status')['maxlength'].requiredLength }} caracteres.
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 10px">
+    <button type="sumit" class="btn btn-primary" (click)="onSubmit()">Salvar</button>
+    <button type="button" class="btn btn-default" (click)="onCancel()">Cancelar</button>
+  </div>
+</form>
