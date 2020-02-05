@@ -14,6 +14,7 @@ import { SharedModule } from './shared/shared.module';
 import { ImplantationModule } from './implantation/implantation.module';
 import { LoginComponent } from './login/login.component';
 import { AuthService } from './login/auth.service';
+import { AuthGuard } from './guards/auth-guard';
 
 
 @NgModule({
@@ -33,7 +34,7 @@ import { AuthService } from './login/auth.service';
     SharedModule,
     ImplantationModule
   ],
-  providers: [CompanyService, AuthService],
+  providers: [CompanyService, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
