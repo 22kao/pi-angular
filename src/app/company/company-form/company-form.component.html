@@ -70,6 +70,7 @@
           id="cep"
           placeholder="CEP"
           formControlName="cep"
+          (blur)="consultaCep($event.target.value)"
           [ngClass]="{ 'is-invalid': submitted && hasError('address.cep') }"
           />
           <div class="invalid-feedback" *ngIf="hasError('address.cep') && hasError('address.cep')['required']">  

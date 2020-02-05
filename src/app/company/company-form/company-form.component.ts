@@ -6,7 +6,6 @@ import { Location } from "@angular/common";
 import { ActivatedRoute } from '@angular/router';
 import { map, switchMap } from 'rxjs/operators';
 import { Company } from '../company';
-import { Company2Service } from '../company2.service';
 
 @Component({
   selector: "app-company-form",

@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
-import { CompanyModule } from './company/company.module';
 
 
 const routes: Routes = [
   {
     path: '',
-    component: HomeComponent
+    pathMatch:'full',
+    redirectTo:'home'
   },
   {
     path: 'home',
@@ -17,6 +17,10 @@ const routes: Routes = [
     path: 'company',
     loadChildren: () => import('./company/company.module').then(m => m.CompanyModule)
     //loadChildren: () => CompanyModule
+  },
+  {
+    path: 'implantation',
+    loadChildren: () => import('./implantation/implantation.module').then(md => md.ImplantationModule)
   }
 ];
 

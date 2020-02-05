@@ -11,6 +11,7 @@ import { CompanyModule } from './company/company.module';
 import { CompanyService } from './company/company.service';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/shared.module';
+import { ImplantationModule } from './implantation/implantation.module';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import { SharedModule } from './shared/shared.module';
     MenuModule,
     HomeModule,
     CompanyModule,
-    SharedModule
+    SharedModule,
+    ImplantationModule
   ],
   providers: [CompanyService],
   bootstrap: [AppComponent]
