@@ -1,0 +1,215 @@
+<form class="needs-validation" novalidate  [formGroup]="form"  style="padding-top: 10px">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="nome">Nome da Empresa</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nome"
+        placeholder="Nome da Empresa"
+        formControlName="name"
+        [ngClass]="{ 'is-invalid': submitted && hasError('name') }"
+      />
+      <div class="invalid-feedback" *ngIf="hasError('name') && hasError('name')['required']">  
+        Por favor informe um nome válido
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('name') && hasError('name')['minlength']">
+        Nome da empresa precisa ter no mínimo {{ hasError('name')['minlength'].requiredLength }} caracteres.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('name') && hasError('name')['maxlength']">
+        Nome da empresa precisa ter no máximo {{ hasError('name')['maxlength'].requiredLength }} caracteres.
+      </div>
+    </div>
+    <div class="col-md-3 mb-3">
+      <label for="cnpj">CNPJ</label>
+      <input
+        type="text"
+        class="form-control"
+        id="cnpj"
+        placeholder="CNPJ"
+        formControlName="document"
+        [ngClass]="{ 'is-invalid': submitted && hasError('document') }"
+        />
+        <div class="invalid-feedback" *ngIf="hasError('document') && hasError('document')['required']">  
+          Por favor informe um CNPJ válido
+        </div>
+        <div class="invalid-feedback" *ngIf="hasError('document') && hasError('document')['minlength']">
+          CNPJ precisa ter no mínimo {{ hasError('document')['minlength'].requiredLength }} caracteres.
+        </div>
+        <div class="invalid-feedback" *ngIf="hasError('document') && hasError('document')['maxlength']">
+          CNPJ precisa ter no máximo {{ hasError('document')['maxlength'].requiredLength }} caracteres.
+        </div>
+    </div>
+    <div class="col-md-4 mb-3">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        placeholder="Email"
+        formControlName="email"
+        [ngClass]="{ 'is-invalid': submitted && hasError('email') }"
+        />
+        <div class="invalid-feedback" *ngIf="hasError('email') && hasError('email')['required']">  
+          Por favor informe um Email válido.
+        </div>
+        <div class="invalid-feedback" *ngIf="hasError('email') && hasError('email')['email']">
+          Por favor informe um email válido.
+        </div>
+        <div class="invalid-feedback" *ngIf="hasError('email') && hasError('email')['maxlength']">
+           Email precisa ter no máximo {{ hasError('email')['maxlength'].requiredLength }} caracteres.
+        </div>
+    </div>
+    <div formGroupName = "address">
+    <div class="form-row" style="margin-top: 10px">
+      <div class="col-md-3 mb-3">
+        <label for="cep">CEP</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cep"
+          placeholder="CEP"
+          formControlName="cep"
+          (blur)="consultaCep($event.target.value)"
+          [ngClass]="{ 'is-invalid': submitted && hasError('address.cep') }"
+          />
+          <div class="invalid-feedback" *ngIf="hasError('address.cep') && hasError('address.cep')['required']">  
+            Por favor informe um CEP válido
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('address.cep') && hasError('address.cep')['minlength']">
+            CEP precisa ter no mínimo {{ hasError('address.cep')['minlength'].requiredLength }} caracteres.
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('address.cep') && hasError('address.cep')['maxlength']">
+            CEP precisa ter no máximo {{ hasError('address.cep')['maxlength'].requiredLength }} caracteres.
+          </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="endereco">Endereço</label>
+        <input
+          type="text"
+          class="form-control"
+          id="endereco"
+          placeholder="Endereço"
+          formControlName="street"
+          [ngClass]="{ 'is-invalid': submitted && hasError('address.street') }"
+          />
+          <div class="invalid-feedback" *ngIf="hasError('address.street') && hasError('address.street')['required']">  
+            Por favor informe um Endereço válido
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('address.street') && hasError('address.street')['minlength']">
+            Endereço precisa ter no mínimo {{ hasError('address.street')['minlength'].requiredLength }} caracteres.
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('address.street') && hasError('address.street')['maxlength']">
+            Endereço precisa ter no máximo {{ hasError('address.street')['maxlength'].requiredLength }} caracteres.
+          </div>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="numero">Número</label>
+        <input
+          type="text"
+          class="form-control"
+          id="numero"
+          placeholder="Número"
+          formControlName="number"
+          [ngClass]="{ 'is-invalid': submitted && hasError('address.number') }"
+          />
+          <div class="invalid-feedback" *ngIf="hasError('address.number') && hasError('address.number')['required']">  
+            Por favor informe um Número válido
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('address.number') && hasError('address.number')['minlength']">
+            Número precisa ter no mínimo {{ hasError('address.number')['minlength'].requiredLength }} caracteres.
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('address.number') && hasError('address.number')['maxlength']">
+            Número precisa ter no máximo {{ hasError('address.number')['maxlength'].requiredLength }} caracteres.
+          </div>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="cidade">Cidade</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cidade"
+          placeholder="Cidade"
+          formControlName="city"
+          [ngClass]="{ 'is-invalid': submitted && hasError('address.city') }"
+          />
+          <div class="invalid-feedback" *ngIf="hasError('address.city') && hasError('address.city')['required']">  
+            Por favor informe um Cidade válido
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('address.city') && hasError('address.city')['minlength']">
+            Cidade precisa ter no mínimo {{ hasError('address.city')['minlength'].requiredLength }} caracteres.
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('address.city') && hasError('address.city')['maxlength']">
+            Cidade precisa ter no máximo {{ hasError('address.city')['maxlength'].requiredLength }} caracteres.
+          </div>
+      </div>
+      <div class="col-md-2 mb-3">
+        <label for="estado">Estado</label>
+        <input
+          type="text"
+          class="form-control"
+          id="estado"
+          placeholder="Estado"
+          formControlName="state"
+          [ngClass]="{ 'is-invalid': submitted && hasError('address.state') }"
+          />
+          <div class="invalid-feedback" *ngIf="hasError('address.state') && hasError('address.state')['required']">  
+            Por favor informe um Estado válido
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('address.state') && hasError('address.state')['minlength']">
+            Estado precisa ter no mínimo {{ hasError('address.state')['minlength'].requiredLength }} caracteres.
+          </div>
+          <div class="invalid-feedback" *ngIf="hasError('address.state') && hasError('address.state')['maxlength']">
+            Estado precisa ter no máximo {{ hasError('address.state')['maxlength'].requiredLength }} caracteres.
+          </div>
+      </div>
+    </div>
+  </div>
+  <div formGroupName = "phones">
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="telefone">Telefone</label>
+        <input
+          type="text"
+          class="form-control"
+          id="telefone"
+          placeholder="Telefone"
+          formControlName="phone"
+        />
+        <div class="invalid-feedback">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-6 mb-3">
+        <label for="telefone">Usuário</label>
+        <input
+          type="text"
+          class="form-control"
+          id="usuario"
+          placeholder="Usuário"
+          formControlName="username"
+        />
+        <div class="invalid-feedback">
+          Please provide a valid city.
+        </div>
+      </div>
+    </div>
+  </div>
+    <button
+      style="margin-left: 10px"
+      type="button"
+      class="btn btn-outline-success btn-sm"
+    >
+      Add
+    </button>
+  </div>
+
+  <div style="margin-top: 10px">
+    <button type="sumit" class="btn btn-primary" (click)="onSubmit()">
+      Salvar
+    </button>
+    <button type="button" class="btn btn-default" (click)="onCancel()">
+      Cancelar
+    </button>
+  </div>
+</form>

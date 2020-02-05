@@ -1,0 +1,28 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+    <h5>Login</h5>
+    <!-- Icon 
+    <div class="fadeIn first">
+      <img src="assets/img/conecte-se.png" id="icon" lass="rounded float-left"/>
+    </div>-->
+
+    <!-- Login Form -->
+    <form>
+      <input [(ngModel)] = "usuario.nome" type="text" id="usuario" class="fadeIn second" name="usuario" placeholder="Usuário">
+      <input [(ngModel)] = "usuario.senha" type="password" id="password" class="fadeIn third" name="password" placeholder="Senha">
+      <input type="button" class="fadeIn fourth" value="Login" (click)="fazerLogin()">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+
+  </div>
+</div>

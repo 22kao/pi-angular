@@ -1,0 +1,57 @@
+<div class="card mt-3">
+    <div class="card-header">
+      <div class="float-left">
+        <h4>Implantações</h4>
+      </div>
+      <div class="float-right">
+        <button type="button" class="btn btn-primary" [routerLink]="['novo']">Nova Implantação</button>
+        <button type="button" class="btn btn-secondary" (click)="onRefresh()">Atualizar</button>
+      </div>
+    </div>
+    <div class="card-body">
+      <table class="table table-hover" *ngIf="implements$ | async as implements; else loading" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Descrição</th>
+            <th scope="col">Data Estimada Inicial</th>
+            <th scope="col">Data Estimada Final</th>
+            <th scope="col">Data Realizada Inicial</th>
+            <th scope="col">Data Realizada Final</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let implements of implements">
+            <td>{{ implements.id }}</td>
+            <td>{{ implements.description }}</td>
+            <td>{{ implements.dtExpectedInitial }}</td>
+            <td>{{ implements.dtExpected }}</td>
+            <td>{{ implements.dtInitial }}</td>
+            <td>{{ implements.dtRealized }}</td>
+            <td>{{ implements.status }}</td>
+            <span class="float-right">
+              <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(implements.id)">
+                Atualizar
+              </button>
+  
+              <button class="btn btn-outline-danger mb-1 btn-sm" (click)="onDelete(implements)">
+                Remover
+              </button>
+            </span>
+          </tr>
+        </tbody>
+      </table>
+      <ng-template #loading>
+        <span>Carregando Implantações...</span>
+      </ng-template>
+    </div>
+  </div>
+  <ng-template #deleteModal>
+    <div class="modal-body text-center">
+      <p>Tem certeza que deseja remover essa Implantação?</p>
+      <button type="button" class="btn btn-default" (click)="onConfirmDelete()">Sim</button>
+      <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">Não</button>
+    </div>
+  </ng-template>
+ 
