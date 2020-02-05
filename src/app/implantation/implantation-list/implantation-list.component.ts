@@ -76,7 +76,7 @@ export class ImplantationListComponent implements OnInit {
       sucess=> {this.onRefresh();
         this.deleteModalRef.hide();
       },
-        error => this.alertService.showAlertDanger('Erro ao remover empresas. Tente novamente mais tarde.')
+        error => this.alertService.showAlertDanger('Erro ao remover implantação. Tente novamente mais tarde.')
       );
   }
 
