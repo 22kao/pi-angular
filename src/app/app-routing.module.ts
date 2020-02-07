@@ -14,22 +14,26 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent,
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'company',
     loadChildren: () => import('./company/company.module').then(m => m.CompanyModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
     //loadChildren: () => CompanyModule
   },
   {
     path: 'implantation',
     loadChildren: () => import('./implantation/implantation.module').then(md => md.ImplantationModule),
-    canActivate: [AuthGuard]
+    //canActivate: [AuthGuard]
   },
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'module',
+    loadChildren: () => import('./modulo/modulo.module').then(md => md.ModuloModule),
   }
 ];
 

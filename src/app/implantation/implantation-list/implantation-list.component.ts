@@ -83,4 +83,8 @@ export class ImplantationListComponent implements OnInit {
   onDeclineDelete(){
     this.deleteModalRef.hide();    
   }
+
+  onDetails(){
+
+  }
 }

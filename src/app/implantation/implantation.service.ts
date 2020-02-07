@@ -11,4 +11,6 @@ export class ImplantationService extends CrudService<Implantation>{
   constructor(protected http: HttpClient) {
     super(http, 'http://localhost:3000/implantation');
   }
+
+  //'http://localhost:8080/implantation'
 }
