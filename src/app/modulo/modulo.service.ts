@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { CrudService } from '../shared/crud-service';
-import { Company } from './company';
+import { Modulo } from './modulo';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CompanyService extends CrudService<Company> {
+export class ModuloService extends CrudService<Modulo>{
 
-  constructor(protected http: HttpClient) {
-    super(http, 'http://localhost:8080/companies');
+  constructor(http: HttpClient) {
+    super(http, 'http://localhost:3000/module');
   }
 }

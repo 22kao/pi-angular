@@ -1,0 +1,79 @@
+<form class="needs-validation" novalidate [formGroup]="form"  style="padding-top: 10px">
+  <div class="form-row">
+    <div class="col-md-4 mb-3">
+      <label for="descricao">Modulo</label>
+      <input
+        type="text"
+        class="form-control"
+        id="descricao"
+        placeholder="Modulo"
+        formControlName="description"
+        [ngClass]="{ 'is-invalid': submitted && hasError('description') }"
+      />
+      <div class="invalid-feedback" *ngIf="hasError('description') && hasError('description')['required']">  
+        Por favor informe um nome válido
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('description') && hasError('description')['minlength']">
+        Modulo precisa ter no mínimo {{ hasError('description')['minlength'].requiredLength }} caracteres.
+      </div>
+      <div class="invalid-feedback" *ngIf="hasError('description') && hasError('description')['maxlength']">
+        Modulo precisa ter no máximo {{ hasError('description')['maxlength'].requiredLength }} caracteres.
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-top: 10px">
+    <button type="sumit" class="btn btn-primary" (click)="onSubmit()">
+      Salvar
+    </button>
+    <button type="button" class="btn btn-default" (click)="onCancel()">
+      Cancelar
+    </button>
+  </div>
+
+<div class="card mt-3">
+    <div class="card-header">
+      <div class="float-left">
+        <h4>Modulos</h4>
+      </div>
+      <div class="float-right">
+        <!--<button type="button" class="btn btn-primary" [routerLink]="['novo']">Novo Modulo</button>-->
+        <button type="button" class="btn btn-secondary" (click)="onRefresh()">Atualizar</button>
+      </div>
+    </div>
+    <div class="table-responsive-xl">
+      <table class="table" *ngIf="modulo$ | async as modulo; else loading" >
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let modulos of modulo">
+            <td>{{ modulos.id }}</td>
+            <td>{{ modulos.description }}</td>
+            <span class="float-right mb-3">
+              <button class="btn btn-outline-warning btn-sm" (click)="onEdit(modulos.id)">
+                Atualizar
+              </button>
+              <button class="btn btn-outline-danger btn-sm" (click)="onDelete(modulos)">
+                Remover
+              </button>
+            </span>
+          </tr>
+        </tbody>
+      </table>
+      <ng-template #loading>
+        <span>Carregando Modulos...</span>
+      </ng-template>
+    </div>
+  </div>
+  <ng-template #deleteModal>
+    <div class="modal-body text-center">
+      <p>Tem certeza que deseja remover essa Implantação?</p>
+      <button type="button" class="btn btn-default" (click)="onConfirmDelete()">Sim</button>
+      <button type="button" class="btn btn-primary" (click)="onDeclineDelete()">Não</button>
+    </div>
+  </ng-template>
+</form>

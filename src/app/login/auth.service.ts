@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private usuarioAutenticado: boolean = false;
+  private usuarioAutenticado: boolean = true;
 
   mostrarMenuEmitter = new EventEmitter<boolean>();
 

@@ -8,7 +8,7 @@ import { AuthService } from '../login/auth.service';
 })
 export class MenuComponent implements OnInit {
 
-  mostrarMenu: boolean = false;
+  mostrarMenu: boolean = true;
 
   constructor(private authService: AuthService) {
 
