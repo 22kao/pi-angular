@@ -14,11 +14,11 @@ export class ImplantationResolveGuard implements Resolve<Implantation> {
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Implantation> {
 
     if (route.params && route.params['id']){
-       console.log('Entrou no guard '+route.params['id'])
+       console.log(route.params);
        return this.service.loadByID(route.params['id']);
      }     
      else {
-      console.log('Entrou no guard '+route.params['id'])
+      console.log('Entrou no guard 2-'+route.params['id'])
      
      return of({
       

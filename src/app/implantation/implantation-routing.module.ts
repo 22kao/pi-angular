@@ -4,6 +4,7 @@ import { ImplantationListComponent } from './implantation-list/implantation-list
 import { ImplantationFormComponent } from './implantation-form/implantation-form.component';
 import { ImplantationResolveGuard } from './guards/implantation-resolve.guard';
 import { ImplantationDetailComponent } from './implantation-detail/implantation-detail.component';
+import { ImplantationModuloComponent } from './implantation-modulo/implantation-modulo.component';
 
 
 
@@ -32,7 +33,13 @@ const routes: Routes = [
      path: "detail",
      component: ImplantationDetailComponent,
      //resolve: { implantation: ImplantationResolveGuard}
-   }
+   },
+   {
+    path: "editar/:id/modulos",
+    component: ImplantationModuloComponent,
+    //resolve: { implantation: ImplantationResolveGuard}
+  }
+  ,
  ];
  
  @NgModule({

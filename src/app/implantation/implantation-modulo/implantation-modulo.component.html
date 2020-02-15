@@ -1,35 +1,41 @@
 <div class="card ">
     <div class="card-header">
       <div class="float-left">
-        <h4>Implantações</h4>
+        <h4>Módulo Implantação</h4>
       </div>
       <div class="float-right">
-        <button type="button" class="btn btn-primary" [routerLink]="['novo']">Nova Implantação</button>
+        <button type="button" class="btn btn-primary" >Novo Módulo</button>
         <button type="button" class="btn btn-secondary" (click)="onRefresh()">Atualizar</button>
       </div>
     </div>
     <div class="table-responsive-xl">
-      <table class="table" *ngIf="implements$ | async as implements; else loading" >
+      <table class="table" *ngIf="{implantationModulo: implantationModulo$ | async
+                                    , usuario: usuario$ | async 
+                                    , modulo: modulo$ | async 
+                                  } as data 
+                                  ; else loading" >
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Descrição</th>
-            <th scope="col">DT Est Inicial</th>
-            <th scope="col">DT Esta Final</th>
-            <th scope="col">DT Real Inicial</th>
-            <th scope="col">DT Real Final</th>
+            <th scope="col">UserID</th>
+            <th scope="col">Modulo ID</th>
+            <th scope="col">Data Inicial</th>
+            <th scope="col">Data Final</th>
+            <th scope="col">Score</th>
+            <th scope="col">Responsável</th>
             <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let implements of implements">
-            <td>{{ implements.id }}</td>
-            <td>{{ implements.description }}</td>
-            <td>{{ implements.dtExpectedInitial| date:'dd/MM/yyyy' }}</td>
-            <td>{{ implements.dtExpected | date:'dd/MM/yyyy'}}</td>
-            <td>{{ implements.dtInitial | date:'dd/MM/yyyy'}}</td>
-            <td>{{ implements.dtRealized  | date:'dd/MM/yyyy'}}</td>
-            <td>{{ implements.status }}</td>
+         <!--<tr *ngFor="let implantationModulo of implantationModulo">-->
+            <td>{{ data.implantationModulo.id }}</td>
+            <td>{{ data.usuario.name }}</td>
+            <td>{{ data.modulo.description }}</td>
+            <td>{{ data.implantationModulo.dtInitial | date:'dd/MM/yyyy' }}</td>
+            <td>{{ data.implantationModulo.dtEnd | date:'dd/MM/yyyy'}}</td>
+            <td>{{ data.implantationModulo.score }}</td>
+            <td>{{ data.implantationModulo.userResponsible }}</td>
+            <td>{{ data.implantationModulo.status }}</td>
             <span class="float-right mb-3">
               <button class="btn btn-outline-warning btn-sm" (click)="onEdit(implements.id)">
                 Atualizar
@@ -41,7 +47,7 @@
                 Detalhe
               </button>-->
             </span>
-          </tr>
+          <!--</tr>-->
         </tbody>
       </table>
       <ng-template #loading>

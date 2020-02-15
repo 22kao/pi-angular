@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Location } from "@angular/common";
 import { Router, ActivatedRoute } from '@angular/router';
@@ -15,6 +15,7 @@ export class ImplantationFormComponent implements OnInit {
 
   form: FormGroup;
   submitted = false;
+  mostrarModulos = new EventEmitter<boolean>()
 
   constructor(private fb: FormBuilder,
               private service: ImplantationService,
@@ -91,6 +92,16 @@ export class ImplantationFormComponent implements OnInit {
     return this.form.get(field).errors;
   }
 
+  checkDetail(){
+    if(this.route.snapshot.params['id']!= null){
+      return true;
+    } 
+      return false;
+  }
 
+  onModulo(){
+    console.log(this.route.snapshot.params['id']);
+   this.router.navigate(['./modulos', ], {relativeTo: this.route});
+  }
  
 }
